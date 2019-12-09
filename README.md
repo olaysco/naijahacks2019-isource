@@ -1,6 +1,6 @@
 # NaijaHacks Hackathon 2019
 
-## Team Infosyndrom
+## Team Isource
 
 ### Team Members
 
