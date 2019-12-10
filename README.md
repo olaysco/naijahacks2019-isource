@@ -7,12 +7,7 @@
 - Muhammed Sanusi, msanusi269@gmail.com
 - Mariam Olabode, mariamolabode@gmail.com
 - Olayiwola Odunsi, olayiwolaodunsi@gmail.com
-<<<<<<< HEAD
-- Omidiora emmanuel, omidioraemmanuel@gmail.com
-
-=======
 - Omidiora Emmanuel, omidioraemmanuel@gmail.com
->>>>>>> 9340c4464560fc5f54e1fdefd92977ff6e00f632
 
 # Problem
 
