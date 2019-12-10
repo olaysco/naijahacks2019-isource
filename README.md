@@ -7,15 +7,15 @@
 - Muhammed Sanusi, msanusi269@gmail.com
 - Mariam Olabode, mariamolabode@gmail.com
 - Olayiwola Odunsi, olayiwolaodunsi@gmail.com
-
+- Omidiora Emmanuel, omidioraemmanuel@gmail.com
 
 # Problem
 
-Majority of SMEs have limited accesss to funding as the business owners/founders are required to have some level of financing or be able to employ the service of someone who have one, likewise they are Workers/retirees/Nigeria from diaspora who wants to invest but not sure of the business to and how to
+The majority of individuals with the desire and capacity to start a business in Nigeria have limited access to complete information by interest, location, and budget. Those that have will have to pay a premium and a long waiting time to get the desired information.   The individuals with the passion and energy to execute the businesses lack access to funding as the individuals are required to have some level of financing or be able to employ the service of someone who has one, likewise, there are individuals (Workers/retirees/Nigeria in diaspora) who are willing to invest but are not sure of the business to and how to key in without direct involvement.
 
 # Proposed Solution
 
-Our solution is to break the barrier between the entreprenuers and investors by creating an investment portal for Nigerian youths to attract individuals (workers about to retire, Nigerians in diaspora) interested in owning part or whole of business by interest, location, and budget.
+We shall be breaking the barrier between the business start-up information, passionate entrepreneurs and investors by creating an investment portal for Nigerian youths to attract individuals (individuals on their career path or about to retire, Nigerians in diaspora and friends of Nigeria) interested in owning part or whole of business by interest, location, and budget in Nigeria.
 
 # Proposed Stack
 
