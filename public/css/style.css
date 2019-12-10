@@ -1,0 +1,35 @@
+body{
+margin: 0%;
+padding: 0%;
+}
+.asthead{
+    background-image: url('/image/a.jpg');
+    width: 100%;
+    height:400px ;
+background-position: center;
+background-repeat: no-repeat;
+opacity: 5;
+background-size: cover;
+ }
+
+
+#font3{
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    line-height:40px;
+    font-size:45px
+  
+}
+#font4{
+    font-family: 'Poppins', sans-serif;
+}
+#image{
+    background-position: center ;
+    background-size: cover ;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    width: fit-content;
+    background: rgba(76, 175, 80, 0.3)
+   
+}
