@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+Route::get('/home', function(){
+    if(Auth::user()->businessOwner) {
+        return redirect('/businessOwner');
+    }else if(Auth::user()->businessInvestor) {
+        return redirect('/businessInvestor');
+    }
+    else {
+        return redirect('/');
+    }
+})->name('home');
+
+Route::middleware(['auth:web', 'businessOwner'])->get('/businessOwner/{path?}', 'HomeController@index');
+Route::middleware(['auth:web', 'businessOwner'])->get('/businessOwner', 'HomeController@index');
+
+Route::middleware(['auth:web', 'businessInvestor'])->get('/businessInvestor/{path?}', 'HomeController@index');
+Route::middleware(['auth:web', 'businessInvestor'])->get('/businessInvestor', 'HomeController@index');
+Route::view('/{path?}', 'welcome');

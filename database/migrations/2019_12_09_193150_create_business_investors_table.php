@@ -16,6 +16,8 @@ class CreateBusinessInvestorsTable extends Migration
         Schema::create('business_investors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->string('about')->nullable();
+            $table->string('dp_url')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
