@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-Route::view('/login', 'welcome');
+Route::view('/login', 'welcome')->name('login');
 Route::view('/register', 'welcome');
 Route::get('/home', function(){
     if(Auth::user()->businessOwner) {
@@ -25,6 +25,7 @@ Route::get('/home', function(){
     }
 })->name('home');
 
+Route::middleware(['auth:web'])->get('/add/business', 'HomeController@index');;
 Route::middleware(['auth:web', 'businessOwner'])->get('/businessOwner/{path?}', 'HomeController@index');
 Route::middleware(['auth:web', 'businessOwner'])->get('/businessOwner', 'HomeController@index');
 

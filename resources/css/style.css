@@ -143,8 +143,19 @@ a.text-white{
 .btn-secondary{
 	/* background-color: #35B876;
   border-color: #35B876; */
-  background-color: #222748;
-  border-color: #222748;
+  background-color: #00b8a5;
+  border-color: #00b8a5;
+}
+.btn-primary{
+	/* background-color: #35B876;
+  border-color: #35B876; */
+  background-color: #212645;
+  border-color: #212645;
+}
+.btn-primary:hover,.btn-primary:focus {
+	background-color: #222748;
+	border-color: #222748;
+	transition: all 2s ease-out;
 }
 .btn-secondary-inverse{
 	color: #222748;

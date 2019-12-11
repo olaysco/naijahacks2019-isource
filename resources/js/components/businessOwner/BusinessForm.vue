@@ -1,0 +1,142 @@
+<template>
+  <div>
+      <Layout>
+          <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-uppercase">Add new business</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <span>
+                                Adding a new business Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam placeat molestiae nobis dolorum voluptas, impedit, vitae sint tempora ullam vero iste,
+                                 pariatur quam? Sapiente, ipsa officiis laborum asperiores beatae officia!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form mt-4">
+                        <form action="#" @submit.prevent="addBusiness">
+                            <div class="form-group">
+                                <ImageFile v-model="form.cover" :placeholder="'Select Business Cover'"
+                                :name="'Business Cover'" key="businessCover"/>
+                                <div class=" help-block invalid-feedback d-block" >{{imageValidateFail}}</div>
+                                <small id="coverHelpBlock" class="form-text text-muted">
+                                    Using a good and descriptive image gives your business a good visual impression.
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Business TItle</label>
+                                <input id="title" type="text" class="form-control"
+                                v-model="form.title" required :class="{ 'is-invalid': form.errors.has('title') }">
+                                <has-error :form="form" field="title"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <label for="desctiption">Business Description</label>
+                                <textarea id="description" class="form-control" v-model="form.description"
+                                required :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
+                                <has-error :form="form" field="description"></has-error>
+                            </div>
+                             <div class="form-group">
+                                <label for="value_proposition">Value Proposition</label>
+                                <textarea id="value_proposition" class="form-control" v-model="form.value_proposition"
+                                required :class="{ 'is-invalid': form.errors.has('value_proposiition') }"></textarea>
+                                <has-error :form="form" field="value_proposition"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <label for="customer_segment">Customer Segment</label>
+                                <textarea id="customer_segment" class="form-control" v-model="form.customer_segment"
+                                required :class="{ 'is-invalid': form.errors.has('customer_segment') }"></textarea>
+                                <has-error :form="form" field="customer_segment"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <label for="key_resources">Key Resources (separated by comma)</label>
+                                <textarea id="key_resources" class="form-control" v-model="form.key_resources"
+                                required :class="{ 'is-invalid': form.errors.has('key_resources') }"></textarea>
+                                <has-error :form="form" field="key_resources"></has-error>
+                            </div>
+                            <div class="form-group row justify-content-evenly mt-1">
+                                <div class="">
+                                    <label for="funding">Seeking funding/Investment</label>
+                                    <input id="funding" type="radio" value="investment" name="type" v-model="form.type" @change="updateValueText">
+                                </div>
+                                <div class="">
+                                    <label for="mentorship">Information Sale</label>
+                                    <input id="mentorship" type="radio" value="sale" name="type" v-model="form.type" @change="updateValueText">
+                                </div>
+                                <has-error :form="form" field="type"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="name">Value (Naira) - {{valueText}}</label>
+                                    <input type="number" class="form-control" v-model="form.value"
+                                    required :class="{ 'is-invalid': form.errors.has('value') }">
+                                    <has-error :form="form" field="value"></has-error>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <button class="btn btn-primary w-100 btn-lg">SUBMIT NEW BUSINESS</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </Layout>
+  </div>
+
+</template>
+<script>
+import Layout from "./Layout"
+import mixins from "../../mixins";
+import ImageFile from "../common/ImageFile"
+export default {
+    mixins: [mixins],
+    components: { Layout, ImageFile },
+    data(){
+        return {
+            valueText:' Fund Seeking to raise ',
+            imageValidateFail:''
+            }
+    },
+    computed:{
+        form() {
+            return new Form({
+                'value_proposition': '',
+                'title' : '',
+                'description' : '',
+                'customer_segment' : '',
+                'key_resources' : '',
+                'type' : 'investment',
+                'value' : '',
+                'cover' : [],
+        })},
+    },
+    methods: {
+        updateValueText(){
+            this.valueText = (this.form.type == 'investment')
+                    ?' Fund Seeking to raise '
+                    :' Information worth - our finance team would evaluate  '
+        },
+        addBusiness(){
+            if(this.form.cover === ''){
+                this.imageValidateFail= 'Image is required';
+                return true;
+            }
+            this.form.post('/api/business')
+                .then(response => {
+                    this.notify("Business successfully added");
+                })
+                .catch(err => {
+                    this.notify("error adding business", "error");
+                })
+        }
+    }
+}
+</script>
+<style scoped>
+.justify-content-evenly{
+    justify-content: space-evenly;
+}
+</style>
