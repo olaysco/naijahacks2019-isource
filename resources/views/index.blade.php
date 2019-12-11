@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title id="font">SIMPLY STUDENT FAIR</title>
+  <title id="font">Isource</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 
 <!-- include summernote css/js -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom fonts for this template -->
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-<!-- Custom styles for this template -->
-<link href="css/landing-page.min.css" rel="stylesheet">
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse w-100 order-1 order-lg-0" id="navbarNav">
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/"  style="font-size:30px">Home</a>
                 </li>
                 <li class="nav-item active mr-4">
-                        <a class="nav-link" href="">About us</a>
+                        <a class="nav-link" href=""  style="font-size:30px">About us</a>
                     </li>
 
                     <li class="nav-item active mr-4">
@@ -60,31 +44,66 @@
 
 <body>
 
+<div class="wrappper" style="margin-top:250px">
+<div class="container-fluid mt-4">
+<div class="row ">
+<div class="col-md-6 col-sm-12">
+<h2></h2>
+<p class="d-flex justify-content-center" style="color:white;font-size:80px">
+    BREAKING THE BARRIER BETWEEN START-UP INFORMATION ,PASSIONATE ENTREPRENUER AND INVESTORS</p>
+</div>
+<div class="col-md-6  col-sm-12" >
+<div class="card" style="height: 48rem !important;">
+    <h2 class="d-flex justify-content-center mt-4">Sign In</h2>
+    <div class="card-body"  style="margin-top:3rem !important;">
+<div class="form-group">
+<label for="" style="font-size:30px">Email</label>
+<input type="email" class="form-control p-5">
+</div>
+<div class="form-group">
+<label for="" style="font-size:30px">Password</label>
+<input type="password" class="form-control p-5">
+</div>
+<div class="form-group d-flex justify-content-center">
+   
+    <button type="submit" class="btn  btn-lg btn-primary " style="width:800px">Submit</button>
+
+</div>
+
+</div>   
+</div>
+
+    
+    </div>
+    
+</div>
+    
+</div>
+</div>
+
 <!-- Masthead -->
 
-
-
+{{-- 
+<div class="container-fluid">
+        <div class="row">
+    <div class="col-md-4">
 <header class="masthead text-white text-center">
         <div class="overlay"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-9 mx-auto">
               <h1 class="mb-5">TITLE</h1>
             </div>
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     CONNECTING AFRICAN STARTUPS TO OPPORTUNITIES
                     VC4A is connecting startup entrepreneurs with the knowledge, support programs, mentors and investors they require to succeed.
             </div>
-          </div>
-        </div>
+         
       </header>
     
   
   
   <!---------->
-  <div class="container mt-4"  style="margin-top:180px!important">
+    <div class="col-md-6">
         <div class="mt-4">
-     <div class="card" style="background:gray">
+     <div class="card" style="backgroun d:gray">
             <h4 class="d-flex justify-content-center"  style="color:white"> Sign Up for business details registration</h4>
            
             <div class="form-group">
@@ -106,45 +125,21 @@
 
             </div>
      </div>
+    </div>
+</div>
+</div>
   </div>
-  
+</div>
+
 
         </div>
-        
+         --}}
 
   
 
 
 
     
-<footer style="margin-top:140px; background:black ;padding:50px;color:white">
-<div class="container-fluid mt-4">
-<div class="row">
-<div class="col-md-4">
-
-</div>
-<div class="col-md-4jj">
-    <h6><a href="/" class="nav-link">HOME </a> </h6>
-<h6> <a href="" class="nav-link">ABOUT </a></h6>
-   
-        </div>
-        <div class="col-md-4">
-                <p>Lorem ipsum quam deserunt sed iusto ipsa assumenda, temporibus repellendus quia odio magni iste. Tempore, nisi illum?</p>
-                </div>
-    
-        
-</div>
-
-</div>
-    
-
-</footer>
-<script>
-
-$('.carousel').carousel({
-    interval: 100
-  });
-</script>
 <script src="js/app.js"></script>
 <script src="js/bootstrap.js"></script>
 
