@@ -10,8 +10,6 @@
                     <div class="position-fixed h-80v d-flex justify-contnet-center flex-column align-items-center">
                         <img src="/img/bizskills.jpg" alt="biz-skill" class="img-responsive mt-auto">
                         <small>ads by adver</small>
-                        <img src="/img/bizskills.jpg" alt="biz-skill" class="img-responsive mt-auto">
-                        <small>ads by adver</small>
                     </div>
                 </div>
             </div>

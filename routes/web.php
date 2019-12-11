@@ -12,6 +12,8 @@
 */
 
 Auth::routes();
+Route::view('/login', 'welcome');
+Route::view('/register', 'welcome');
 Route::get('/home', function(){
     if(Auth::user()->businessOwner) {
         return redirect('/businessOwner');

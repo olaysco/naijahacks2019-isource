@@ -184,6 +184,10 @@ a.text-white{
 	transition: width .3s;
 }
 
+.animate-link.active::after {
+    width: 100%;
+}
+
 .animate-link:hover::after {
     width: 100%;
 }
