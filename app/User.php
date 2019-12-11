@@ -37,4 +37,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function businessOwner()
+    {
+        return $this->hasOne('App\BusinessOwner');
+    }
+
+    public function businessInvestor()
+    {
+        return $this->hasOne('App\BusinessInvestor');
+    }
 }
