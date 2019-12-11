@@ -3,6 +3,7 @@ import Vue from "vue";
 import Home from "../components/Home";
 import BusinessOwnerHome from "../components/businessOwner/Home";
 import BusinessInvestorHome from "../components/businessInvestor/Home";
+import BusinessPage from "../components/BusinessPage";
 Vue.use(VueRouter);
 
 const routes = [
@@ -10,6 +11,7 @@ const routes = [
     { path: "/home", component:Home },
     {  path: "/businessOwner", component:BusinessOwnerHome },
     {  path: "/businessInvestor", component:BusinessInvestorHome },
+    {  path: "/business", component:BusinessPage },
 ]
 
 const router = new VueRouter({

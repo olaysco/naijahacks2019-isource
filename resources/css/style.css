@@ -75,6 +75,9 @@ a.text-white{
 .h-100p{
 	max-height: 100px;
 }
+.h-80v{
+    height: 80vh;
+}
 .h-80p{
 	height: 80px;
 }
@@ -412,7 +415,8 @@ div.team-count{
   background: url(../img/de.jpg);
 }
 .project-card{
-	margin: 20px;
+    margin: 20px;
+    cursor: pointer;
 }
 .project-card:hover{
     -webkit-box-shadow: 0px 0px 18px 6px rgb(193, 192, 192);
@@ -510,6 +514,7 @@ div.team-count{
 .project-card .wrap>span{
     font-size: 1rem;
     letter-spacing: 0.5px;
+    color: #000;
 }
 .project-card h5{
   font-size: 1em;
