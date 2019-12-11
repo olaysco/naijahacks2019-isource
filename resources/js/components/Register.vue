@@ -59,7 +59,7 @@
 
                 <div class="form-group row mb-2">
                 <div class="col-md-12 ">
-                    <button @click.prevent="register" type="submit" class="btn btn-secondary w-100" :disabled="form.busy">
+                    <button @click.prevent="register" type="submit" class="btn btn-primary w-100" :disabled="form.busy">
                     Register
                     <span class="spinner-grow spinner-grow-sm" :class="{'d-none': !form.busy}" role="status" aria-hidden="true"></span>
                     </button>

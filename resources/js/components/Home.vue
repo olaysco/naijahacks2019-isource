@@ -8,8 +8,9 @@
                 </a>
                 <ul class="d-flex justify-self-end mb-0">
                     <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark  pr-3">Login</a>
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark ">Signup</a>
+                        <a href="/home" class="active animate-link  mr-1 justify-self-center text-dark  pr-3">HOME</a>
+              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark  pr-3">ABOUT</a>
+              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark ">TRAININGS</a>
               </li>
               </ul>
             </header>
