@@ -8,7 +8,7 @@
                 <ul class="d-flex justify-self-end mb-0">
                     <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
               <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Businesses</a>
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Investors</a>
+              <a href="/search" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Search</a>
               <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase pr-3">Profile</a>
               <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase " @click="logout">Logout</a>
               </li>

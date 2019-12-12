@@ -1,27 +1,26 @@
 <template>
 <div>
-    <section>
+    <section v-if="business">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-between">
-                <h3 class="businessName">Fishing Farming <small>(funding)</small></h3>
+                <h3 class="businessName">{{business.title}} <small v-text="(business.type == 'investment')?'(funding)':'(sale)'"></small></h3>
                 <div class="row py-2 category d-flex justify-content-between">
-                            <span class="mr-2"><i class="fa fa-fw fa-tag"></i> Agriculture</span>
-                            <span><i class="fa fa-fw fa-map-marker"></i> Kogi</span>
+                            <span class="mr-2"><i class="fa fa-fw fa-tag"></i> {{business.sector}}</span>
+                            <span><i class="fa fa-fw fa-map-marker"></i> {{business.location}}</span>
                     </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="business-cover">
-                    <img src="/img/biz.jpg" alt="" srcset="" class=" img-responsive">
+                    <img :src="'/storage'+business.cover_url" alt="" srcset="" class=" img-responsive">
                 </div>
             </div>
         </div>
         <div class="row my-4">
             <div class="col-md-12 business-description br-4">
                 <h6 class="p-4">
-                    The majority of individuals with the desire and
-                capacity to start a business in Nigeria have limited access to complete information
+                    {{business.description}}
                 </h6>
             </div>
         </div>
@@ -43,29 +42,28 @@
                 <div class="tab-pane active" id="value">
                     <h4>Value Proposition</h4>
                     <div class="list-group">
-                        <span class="list-group-item">The majority of individuals with the desire</span>
-                        <span class="list-group-item">capacity to start a business</span>
-                        <span class="list-group-item">Nigeria have limited access to complete</span>
-                        <span class="list-group-item">information by interest, location, and budget</span>
+                        <span class="list-group-item" v-for="(pr,index) in business.value_proposition.split(',')" :key="index">
+                            {{ pr }}</span>
                     </div>
-
                 </div>
                 <div class="tab-pane" id="customer">
                     <h4>Customer Segment</h4>
-                    <span>Our Customer are farm produce wholesalers</span>
+                    <span v-text="business.customer_segment"></span>
                 </div>
                 <div class="tab-pane" id="resources">
                     <h4>Key Resources</h4>
-                    <span>Land</span><br>
-                    <span>Mechanized tools</span>
+                    <span v-for="(pr,index) in business.key_resources.split(',')" :key="index+'kr'">Land <br></span>
                 </div>
                 <div class="tab-pane" id="documents">
-                    <img src="/img/list.png" alt="png" class="img-responsive" >
+                    <a :href="'/storage'+business.document_url" target="_blank" >Download document <i class="fa fa-file"></i></a>
                 </div>
             </div>
             </div>
         </div>
     </section>
+    <div class="row" v-else>
+        <a-skeleton :loading="!business" />
+    </div>
 </div>
 
 </template>

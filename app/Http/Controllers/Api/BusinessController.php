@@ -21,7 +21,7 @@ class BusinessController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api');
+
     }
 
     public function index( Request $request )
@@ -31,6 +31,7 @@ class BusinessController extends Controller
 
     public function store( BusinessStoreRequest $request)
     {
+        $this->middleware('auth:api');
         $cover = $this->saveFile($request->cover, $this->folder);
         $document = $this->saveFile($request->document, $this->folder);
         $business = new Business();
@@ -50,6 +51,22 @@ class BusinessController extends Controller
 
         return response()->json($business->all(), 200);
 
+    }
+
+    public function search( Request $request )
+    {
+
+        $location = ($request->location == "All")?'':$request->location;
+        $sector = ($request->sector == "All")?'':$request->sector;
+        $term = $request->term;
+        $business = Business
+                    ::where( 'title', 'LIKE', '%'.$term.'%' )
+                    ->where( 'sector', 'LIKE', '%'.$sector.'%' )
+                    ->where( 'location', 'LIKE', '%'.$location.'%' )
+                    ->whereBetween( 'value', $request->value )
+                    ->with('businessOwner')
+                    ->get();
+        return response()->json($business, 200);
     }
 
     public function allBusiness()

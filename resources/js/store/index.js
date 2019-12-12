@@ -9,6 +9,9 @@ export default new vuex.Store({
     state: {
         toLogin: true,
         businesses: [],
+        searchData: null,
+        searchResult: null,
+        searching: false,
     },
     mutations: {
         toggleToLogin( state ){
@@ -16,6 +19,9 @@ export default new vuex.Store({
         },
         setBusinesses( state, businesses ){
             state.businesses = businesses;
+        },
+        setSearchData( state, searchData ){
+            state.searchData = searchData;
         }
     },
     actions: {
@@ -31,6 +37,17 @@ export default new vuex.Store({
             console.log(index)
             console.log(context.state.businesses);
             return context.state.businesses[index];
+        },
+        search( { state } ){
+            state.searching = true;
+            Axios.post('/api/business/search', state.searchData)
+                .then( response => {
+                    state.searchResult = response.data;
+                })
+                .catch( console.log )
+                .finally( e => {
+                    state.searching = false;
+                });
         }
     },
 })

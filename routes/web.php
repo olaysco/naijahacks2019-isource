@@ -33,3 +33,4 @@ Route::middleware(['auth:web', 'businessInvestor'])->get('/businessInvestor/{pat
 Route::middleware(['auth:web', 'businessInvestor'])->get('/businessInvestor', 'HomeController@index');
 Route::view('/{path?}', 'welcome');
 Route::view('/business/{path?}', 'welcome');
+Route::view('/search/{path?}', 'welcome');
