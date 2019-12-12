@@ -25,6 +25,9 @@ class CreateBusinessesTable extends Migration
             $table->boolean('verified')->default(false);
             $table->enum('status', ['open','close'])->default('open');
             $table->string('cover_url');
+            $table->string('document_url');
+            $table->string('location');
+            $table->string('sector');
             $table->bigInteger('value');
             $table->timestamps();
 

@@ -24,9 +24,15 @@ class BusinessController extends Controller
         $this->middleware('auth:api');
     }
 
+    public function index( Request $request )
+    {
+        return response()->json($this->allBusiness(), 200);
+    }
+
     public function store( BusinessStoreRequest $request)
     {
         $cover = $this->saveFile($request->cover, $this->folder);
+        $document = $this->saveFile($request->document, $this->folder);
         $business = new Business();
         $business->title = $request->title;
         $business->key_resources = $request->key_resources;
@@ -36,10 +42,18 @@ class BusinessController extends Controller
         $business->value = $request->value;
         $business->type = $request->type;
         $business->cover_url = $cover;
+        $business->document_url = $document;
+        $business->location = $request->location;
+        $business->sector = $request->sector;
         $business->business_owner_id = Auth::user()->businessOwner->id;
         $business->save();
 
-        return response()->json($business, 200);
+        return response()->json($business->all(), 200);
 
+    }
+
+    public function allBusiness()
+    {
+        return Business::with('businessOwner')->get();
     }
 }

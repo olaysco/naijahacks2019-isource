@@ -31,7 +31,10 @@ class BusinessStoreRequest extends FormRequest
             'value' => 'required',
             'type' => 'required',
             'description' => 'required',
-            'cover' => 'required'
+            'cover' => 'required',
+            'document' => 'required',
+            'sector' => 'required',
+            'location' => 'required'
         ];
     }
 }

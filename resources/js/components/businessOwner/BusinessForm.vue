@@ -54,6 +54,14 @@
                                 required :class="{ 'is-invalid': form.errors.has('key_resources') }"></textarea>
                                 <has-error :form="form" field="key_resources"></has-error>
                             </div>
+                            <div class="form-group">
+                                <ImageFile v-model="form.document" :placeholder="'Select Business Document'"
+                                :supportedFormat="fileFormat" :name="'Business Document'" key="businessDocument"/>
+                                <div class=" help-block invalid-feedback d-block" >{{documentValidateFail}}</div>
+                                <!-- <small id="coverHelpBlock" class="form-text text-muted">
+                                    Using a good and descriptive image gives your business a good visual impression.
+                                </small> -->
+                            </div>
                             <div class="form-group row justify-content-evenly mt-1">
                                 <div class="">
                                     <label for="funding">Seeking funding/Investment</label>
@@ -67,15 +75,48 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="name">Value (Naira) - {{valueText}}</label>
-                                    <input type="number" class="form-control" v-model="form.value"
+                                    <label for="value">Value (Naira) - {{valueText}}</label>
+                                    <input id="value" type="number" class="form-control" v-model="form.value"
                                     required :class="{ 'is-invalid': form.errors.has('value') }">
                                     <has-error :form="form" field="value"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <button class="btn btn-primary w-100 btn-lg">SUBMIT NEW BUSINESS</button>
+                                    <div class="col-md-6">
+                                        <label for="location">Business Location</label>
+                                        <select name="location" id="location" class="form-control"
+                                        v-model="form.location" required :class="{ 'is-invalid': form.errors.has('location') }">
+                                            <option value="Abuja">Abuja</option>
+                                            <option value="Anambra">Anambra</option>
+                                            <option value="Akwa Ibom">Akwa Ibom</option>
+                                            <option value="Kaduna">Kaduna</option>
+                                            <option value="Lagos">Lagos</option>
+                                            <option value="Osun">Osun</option>
+                                            <option value="Zamfara">Zamfara</option>
+                                        </select>
+                                        <has-error :form="form" field="location"></has-error>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="sector">Business Sector</label>
+                                        <select name="sector" id="location" class="form-control"
+                                        v-model="form.sector" required :class="{ 'is-invalid': form.errors.has('sector') }">
+                                            <option value="Agriculture">Agriculture</option>
+                                            <option value="Technology">Technology</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Housing">Housing</option>
+                                            <option value="Health">Health</option>
+                                        </select>
+                                        <has-error :form="form" field="sector"></has-error>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <button class="btn btn-primary w-100 btn-lg" :disabled="form.busy">
+                                        SUBMIT NEW BUSINESS
+                                         <span class="spinner-grow spinner-grow-sm" :class="{'d-none': !form.busy}" role="status" aria-hidden="true"></span>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -97,7 +138,9 @@ export default {
     data(){
         return {
             valueText:' Fund Seeking to raise ',
-            imageValidateFail:''
+            imageValidateFail:'',
+            documentValidateFail:'',
+            fileFormat: ['application/pdf']
             }
     },
     computed:{
@@ -110,7 +153,10 @@ export default {
                 'key_resources' : '',
                 'type' : 'investment',
                 'value' : '',
+                'sector' : '',
+                'location' : '',
                 'cover' : [],
+                'document' : []
         })},
     },
     methods: {
@@ -121,12 +167,19 @@ export default {
         },
         addBusiness(){
             if(this.form.cover === ''){
-                this.imageValidateFail= 'Image is required';
+                this.imageValidateFail= 'Cover is required';
                 return true;
             }
+            if(this.form.document === ''){
+                this.documentValidateFail = 'Business document is required';
+                return true;
+            }
+            this.documentValidateFail = '';
+            this.imageValidateFail = '';
             this.form.post('/api/business')
                 .then(response => {
                     this.notify("Business successfully added");
+                    this.$router.push('/businessOwner')
                 })
                 .catch(err => {
                     this.notify("error adding business", "error");

@@ -79,7 +79,7 @@
 import Footer from "./Footer";
 import Register from "./Register";
 import login from "./Login";
-import BusinessCard from "./BusinessCard";
+import BusinessCard from "./common/BusinessCard";
 export default {
     components: {
         login, BusinessCard, Footer, Register

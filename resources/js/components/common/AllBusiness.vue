@@ -1,18 +1,27 @@
 <template>
   <div>
-      <div class="row">
-          <div class="col-md-6" v-for="i in [1,2,3,4,5,6,7,9]" :key="i">
-              <BusinessCard></BusinessCard>
+      <div class="row" v-if="businesses.length>0">
+          <div class="col-md-6" v-for="( business, i) in businesses" :key="i">
+              <BusinessCard :business="business" :key="'business'+i"></BusinessCard>
           </div>
+      </div>
+      <div class="row" v-else>
+          <Empty></Empty>
       </div>
 
   </div>
 </template>
 <script>
-import BusinessCard from "./BusinessCard";
+import BusinessCard from "../BusinessCard";
+import Empty from "../common/empty"
 export default {
     components: {
-        BusinessCard
+        BusinessCard, Empty
+    },
+    computed: {
+        businesses(){
+            return this.$store.state.businesses;
+        }
     }
 }
 </script>
