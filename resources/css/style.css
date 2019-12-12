@@ -487,6 +487,20 @@ div.team-count{
 	border-bottom-left-radius: .25rem;
 	border-bottom-right-radius: .25rem;
 }
+.project-card .value{
+    position: absolute;
+    top: 0px;
+    min-width: 60px;
+    padding: 0.4rem;
+    color: #fff;
+    /* height: 75px; */
+    background-color: #232848;
+    right: 10px;
+    z-index: 3;
+    text-transform: uppercase;
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
 .project-card .date > .day{
 	display: block;
 	width: 50px;

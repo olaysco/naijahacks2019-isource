@@ -23,8 +23,14 @@ export default new vuex.Store({
             Axios.get("/api/business")
                 .then(response => {
                     context.commit( "setBusinesses", response.data );
+                    console.log('dd');
                 })
                 .catch( console.log );
+        },
+        getBusiness( context, index ){
+            console.log(index)
+            console.log(context.state.businesses);
+            return context.state.businesses[index];
         }
     },
 })

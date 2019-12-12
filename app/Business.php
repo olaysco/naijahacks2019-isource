@@ -10,6 +10,6 @@ class Business extends Model
 
     public function businessOwner()
     {
-        return $this->belongsTo('App\BusinessOwner');
+        return $this->belongsTo('App\BusinessOwner')->with('user');
     }
 }

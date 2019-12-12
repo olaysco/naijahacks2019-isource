@@ -14,7 +14,7 @@ const routes = [
     { path: "/register", component:Home },
     {  path: "/businessOwner", component:BusinessOwnerHome },
     {  path: "/businessInvestor", component:BusinessInvestorHome },
-    {  path: "/business", component:BusinessPage },
+    {  path: "/business/:id", component:BusinessPage },
     {  path: "/add/business", component:BusinessForm },
 ]
 

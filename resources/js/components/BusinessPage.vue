@@ -1,28 +1,27 @@
 <template>
   <div>
-        <Header></Header>
+    <Layout>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <SingleBusiness></SingleBusiness>
+                    <SingleBusiness :id="id"></SingleBusiness>
                 </div>
             </div>
         </div>
-
-        <section class="footer">
-            <Footer></Footer>
-        </section>
+    </Layout>
   </div>
 
 </template>
 <script>
-import Header from "./common/Header";
 import AllBusiness from "./common/AllBusiness";
 import SingleBusiness from "./common/SingleBusiness";
-import Footer from "./Footer";
+import Layout from "./Layout";
 export default {
     components: {
-        Header, AllBusiness, SingleBusiness, Footer
+        Layout, AllBusiness, SingleBusiness
+    },
+    computed:{
+        id(){ return this.$route.params.id }
     }
 }
 </script>
