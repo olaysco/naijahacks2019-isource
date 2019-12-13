@@ -11,11 +11,12 @@
 
 # Problem
 
-Ideally, getting complete information to start a business in Nigeria shouldn't take months. However,  individuals currently seeking information to start a business in Nigeria are faced with inadequate information, inefficient use of time and resources, yet the information provided are highly generic, likewise, there are individuals (Workers/retirees/Nigeria in diaspora) who are willing to invest but are not sure of the business to and how to key in without direct involvement.
+Ideally, getting complete information to start a business in Nigeria shouldn't take months. However,  individuals currently seeking information to start a business in Nigeria are faced with inadequate information, inefficient use of time and resources, yet the information provided are highly generic. Also, there are individuals (Workers/retirees/Nigeria in diaspora) who are willing to own a business but they don't have the time to manage the business.
 
 # Proposed Solution
 
-We shall be breaking the barrier between the business start-up information, passionate entrepreneurs and investors by creating an investment portal for Nigerian youths to attract individuals (individuals on their career path or about to retire, Nigerians in diaspora and friends of Nigeria) interested in owning part or whole of business by interest, location, and budget in Nigeria.
+We shall be Creating a platform where individuals can provide verified business information and get paid for it while start ups can access such information at an affordable price.
+Our platform will also serve as an avenue  where individuals (Workers/retirees/Nigeria in diaspora) can  become investors.
 
 # Proposed Stack
 
