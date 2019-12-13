@@ -8,19 +8,22 @@ import BusinessPage from "../components/BusinessPage";
 import BusinessForm from "../components/businessOwner/BusinessForm";
 import Search from "../components/Search";
 import SearchResult from "../components/SearchResult";
+import Login from "../components/Login";
+import Register from "../components/Register";
+
 Vue.use(VueRouter);
 
 const routes = [
     { path: "/", component:Home },
     { path: "/home", component:Home },
-    { path: "/login", component:Home },
-    { path: "/register", component:Home },
     { path: "/search", component:Search },
     { path: "/businessOwner", component:BusinessOwnerHome },
     { path: "/businessInvestor", component:BusinessInvestorHome },
     { path: "/business/:id", component:BusinessPage },
     { path: "/add/business", component:BusinessForm },
     { path: "/search/result", component:SearchResult },
+    { path: "/login", component:Login },
+    { path: "/register", component: Register }
 ]
 
 const router = new VueRouter({
@@ -33,9 +36,7 @@ router.beforeResolve((to, from, next) => {
 next()
 });
 router.afterEach((to, from) => {
-    setTimeout(()=>{
-        NProgress.done()
-    },200000);
+    NProgress.done()
 
 });
 

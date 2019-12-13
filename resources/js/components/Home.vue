@@ -10,7 +10,8 @@
                     <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
                 <a href="/home" class="active animate-link  mr-1 justify-self-center text-dark  pr-3">HOME</a>
                 <router-link to="/search" class="animate-link  mr-1 justify-self-center text-dark  pr-3">SEARCH</router-link>
-              <a href="/invest" class="animate-link  mr-1 justify-self-center text-dark ">INVEST</a>
+              <a href="/invest" class="animate-link  mr-1 justify-self-center text-dark pr-3">INVESTMENT</a>
+              <a href="/login" class="btn btn-secondary  mr-1 justify-self-center">SIGN IN</a>
               </li>
               </ul>
             </header>
@@ -26,13 +27,14 @@
                             passionate <span class="font-bold">entrepreneurs</span> and
                             <span class="font-bold">investors</span>
                         </h2>
-                        <div>
+                        <!-- <div>
                             <router-link to="/search" class="btn btn-secondary px-4">FIND BUSINESS NOW</router-link>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-md-4">
-                        <login v-if="toLogin"></login>
-                        <Register v-else></Register>
+                        <SearchComponent></SearchComponent>
+                        <!-- <login v-if="toLogin"></login>
+                        <Register v-else></Register> -->
                     </div>
                 </div>
             </div>
@@ -88,9 +90,10 @@ import Footer from "./Footer";
 import Register from "./Register";
 import login from "./Login";
 import BusinessCard from "./common/BusinessCard";
+import SearchComponent from "./common/SearchComponent";
 export default {
     components: {
-        login, BusinessCard, Footer, Register
+        login, BusinessCard, Footer, Register, SearchComponent
     },
     data() {
         return{
@@ -114,6 +117,7 @@ export default {
     height: calc(100vh - 80px);
     width: 100vw;
     background-color: #212645;
+    background-image: url('/img/bg.svg');
 }
 .heading-text .barrier{
     font-size: 80%;

@@ -10,7 +10,7 @@
               <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Businesses</router-link>
               <router-link to="/search" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Search</router-link>
               <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase pr-3">Profile</router-link>
-              <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase " @click="logout">Logout</router-link>
+              <a href="#" class="animate-link  mr-1 justify-self-center text-dark text-uppercase " @click="logout">Logout</a>
               </li>
               </ul>
             </header>
