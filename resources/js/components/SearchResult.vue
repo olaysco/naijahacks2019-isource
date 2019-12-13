@@ -2,10 +2,13 @@
     <div>
         <div class="main-container">
             <div class="head-section d-flex">
+                <a href="/home" class="logo-text">
+                    iSource
+                </a>
                 <header class="d-flex">
-                    <a href="#">Account</a>
-                    <a href="#" class="menu"><i class="fa fa-home fa-1x"></i></a>
-                    <!-- <a href="#" class="avatar"><img src="/img/avatar.png" alt="avatar"></a> -->
+                    <a href="/home" class="animate-link"> HOME</a>
+                    <router-link to="#" class="active animate-link">SEARCH</router-link>
+                    <router-link to="/invest" class="animate-link">INVEST</router-link>
                 </header>
             </div>
             <div class="body h-100v">
@@ -16,7 +19,7 @@
                         Value : <a-tag color="green" key="tagv" :closable="false" v-html="`&#8358;${searchData.value[0]} - &#8358;${searchData.value[1]}`"></a-tag>
                     </div>
                     <div class="col-md-12">
-                        <h3 class="font-100">Searched for {{searchData.term}}</h3>
+                        <h3 class="font-100">Searched for <span class="font-bold">{{searchData.term}}</span></h3>
                     </div>
                 </div>
                 <div class="row" v-if="businesses && businesses.length>0">
@@ -38,7 +41,7 @@
                 <div class="footer-bottom d-flex align-center justify-between">
                     <div>
                          <span class="country font-700">ISOURCE</span>
-                        <span>Trainings</span>
+                        <span>INVEST</span>
                         <span>Executive Hub</span>
                         <span>About</span>
                     </div>
@@ -115,7 +118,7 @@ export default {
 }
 .head-section{
     padding: 15px 30px;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .head-section>header{
     align-items: center;

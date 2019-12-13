@@ -2,13 +2,21 @@
     <div>
         <div class="main-container">
             <div class="head-section d-flex">
+                <a href="/home" class="logo-text">
+                    iSource
+                </a>
                 <header class="d-flex">
-                    <a href="#">Account</a>
-                    <a href="#" class="menu"><i class="fa fa-home fa-1x"></i></a>
+                    <a href="/home" class="animate-link"> HOME</a>
+                    <router-link to="#" class="active animate-link">SEARCH</router-link>
+                    <router-link to="/invest" class="animate-link">INVEST</router-link>
                 </header>
             </div>
             <div class="body-section d-flex">
                 <div class="logo">
+                    <h2 class="text-uppercase font-300 text-center">
+                            Breaking the <span class="font-bold">start-up information</span>
+                            <span class="barrier text-line-through">barrier</span>
+                        </h2>
                 </div>
                 <div class="search-form ">
                     <div class="search-input">
@@ -75,7 +83,7 @@
                 <div class="footer-bottom d-flex align-center justify-between">
                     <div>
                          <span class="country font-700">ISOURCE</span>
-                        <span>Trainings</span>
+                        <span>INVEST</span>
                         <span>Executive Hub</span>
                         <span>About</span>
                     </div>
@@ -162,7 +170,7 @@ export default {
 }
 .head-section{
     padding: 15px 30px;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .head-section>header{
     align-items: center;
@@ -179,6 +187,7 @@ header > a.avatar >img{
 }
 header > a.menu{
     color: #00b8a5;
+    text-decoration: none;
 }
 header > a.menu >img{
     width: 24px;

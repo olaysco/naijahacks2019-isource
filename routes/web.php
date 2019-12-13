@@ -15,9 +15,9 @@ Auth::routes();
 Route::view('/login', 'welcome')->name('login');
 Route::view('/register', 'welcome');
 Route::get('/home', function(){
-    if(Auth::user()->businessOwner) {
+    if(Auth::user() && Auth::user()->businessOwner) {
         return redirect('/businessOwner');
-    }else if(Auth::user()->businessInvestor) {
+    }else if(Auth::user() && Auth::user()->businessInvestor) {
         return redirect('/businessInvestor');
     }
     else {

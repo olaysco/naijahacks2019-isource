@@ -1,5 +1,6 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
+import NProgress from "nprogress";
 import Home from "../components/Home";
 import BusinessOwnerHome from "../components/businessOwner/Home";
 import BusinessInvestorHome from "../components/businessInvestor/Home";
@@ -25,6 +26,17 @@ const routes = [
 const router = new VueRouter({
     mode: "history",
     routes
+});
+
+router.beforeResolve((to, from, next) => {
+    NProgress.start()
+next()
+});
+router.afterEach((to, from) => {
+    setTimeout(()=>{
+        NProgress.done()
+    },200000);
+
 });
 
 export default router;

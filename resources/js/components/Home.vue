@@ -9,8 +9,8 @@
                 <ul class="d-flex justify-self-end mb-0">
                     <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
                 <a href="/home" class="active animate-link  mr-1 justify-self-center text-dark  pr-3">HOME</a>
-                <a href="/search" class="animate-link  mr-1 justify-self-center text-dark  pr-3">SEARCH</a>
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark ">TRAININGS</a>
+                <router-link to="/search" class="animate-link  mr-1 justify-self-center text-dark  pr-3">SEARCH</router-link>
+              <a href="/invest" class="animate-link  mr-1 justify-self-center text-dark ">INVEST</a>
               </li>
               </ul>
             </header>
@@ -26,6 +26,9 @@
                             passionate <span class="font-bold">entrepreneurs</span> and
                             <span class="font-bold">investors</span>
                         </h2>
+                        <div>
+                            <router-link to="/search" class="btn btn-secondary px-4">FIND BUSINESS NOW</router-link>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <login v-if="toLogin"></login>
@@ -50,6 +53,11 @@
                     </div>
                     <div class="col-md-4">
                         <BusinessCard></BusinessCard>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-md-12 d-flex justify-content-center my-4">
+                        <router-link to="/search" class="btn btn-secondary w-60 py-3">FIND A BUSINESS NOW</router-link>
                     </div>
                 </div>
             </div>
@@ -99,6 +107,9 @@ export default {
 }
 </script>
 <style scoped>
+.w-60{
+    min-width: 55%;
+}
 .main{
     height: calc(100vh - 80px);
     width: 100vw;
