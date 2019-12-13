@@ -16,7 +16,7 @@
                     <div class="col-md-12 text-center" v-if="searchData">
                         Location : <a-tag color="green" key="tagl" :closable="false">{{searchData.location}}</a-tag>
                         Sector : <a-tag color="green" key="tags" :closable="false">{{searchData.sector}}</a-tag>
-                        Value : <a-tag color="green" key="tagv" :closable="false" v-html="`&#8358;${searchData.value[0]} - &#8358;${searchData.value[1]}`"></a-tag>
+                        Value : <a-tag color="green" key="tagv" :closable="false" v-html="`&#8358;${searchData.value[0].toLocaleString()} - &#8358;${searchData.value[1].toLocaleString()}`"></a-tag>
                     </div>
                     <div class="col-md-12">
                         <h3 class="font-100">Searched for <span class="font-bold">{{searchData.term}}</span></h3>
