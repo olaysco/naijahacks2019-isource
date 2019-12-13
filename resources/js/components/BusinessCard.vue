@@ -8,7 +8,7 @@
             <div class="value ">
               <!-- <div  class="day d-flex"><span class="m-auto">{{project.startDate | moment('Do')}}</span></div> -->
               <!-- <span class="month">{{project.startDate | moment('MMM')}}</span> -->
-              sale: &#8358;{{business.value}}
+              <span v-text="(business.type == 'investment')?'funding':'sale'"></span>: &#8358;{{business.value}}
             </div>
           </figure>
         </div>

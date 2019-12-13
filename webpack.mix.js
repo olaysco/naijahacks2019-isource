@@ -13,5 +13,5 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .styles(['resources/css/style.css'], 'public/css/all.css')
+    .styles(['resources/css/style.css', 'resources/css/nprogress.css'], 'public/css/all.css')
     .browserSync({proxy:process.env.APP_URL, open:false});

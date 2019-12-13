@@ -7,10 +7,10 @@
                 </a>
                 <ul class="d-flex justify-self-end mb-0">
                     <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Businesses</a>
-              <a href="/search" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Search</a>
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase pr-3">Profile</a>
-              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase " @click="logout">Logout</a>
+              <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Businesses</router-link>
+              <router-link to="/search" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Search</router-link>
+              <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase pr-3">Profile</router-link>
+              <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase " @click="logout">Logout</router-link>
               </li>
               </ul>
             </header>
