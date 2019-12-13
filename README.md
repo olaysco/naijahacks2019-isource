@@ -11,7 +11,7 @@
 
 # Problem
 
-The majority of individuals with the desire and capacity to start a business in Nigeria have limited access to complete information by interest, location, and budget. Those that have will have to pay a premium and a long waiting time to get the desired information.   The individuals with the passion and energy to execute the businesses lack access to funding as the individuals are required to have some level of financing or be able to employ the service of someone who has one, likewise, there are individuals (Workers/retirees/Nigeria in diaspora) who are willing to invest but are not sure of the business to and how to key in without direct involvement.
+Ideally, getting complete information to start a business in Nigeria shouldn't take months. However,  individuals currently seeking information to start a business in Nigeria are faced with inadequate information, inefficient use of time and resources, yet the information provided are highly generic, likewise, there are individuals (Workers/retirees/Nigeria in diaspora) who are willing to invest but are not sure of the business to and how to key in without direct involvement.
 
 # Proposed Solution
 
@@ -26,9 +26,16 @@ Build tool - NPM, Webpack
 
 # Benefit
 
-- Quick access to funding for business owners.
-- Secured investments for first time investors.
+- Our target audience will have quick access to detailed business information.
+- More Nigeria Youths will be paid for providing accurate information.
 - Increase rate of busniess growth.
+
+# Members Role
+
+  - Muhammed Sanusi : Responsible for developing developing the userstory, idea presenter 
+  - Mariam Olabode: Responsible for developing the userstory and project documentation  
+  - Olayiwola Odunsi: Responsible the backend and frontend implementation of product specification   
+  - Omidiora Emmanuel: Responsible for working on development.
 
 
 # Top-level directory layout
