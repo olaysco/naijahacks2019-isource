@@ -40,7 +40,7 @@
                              <div class="form-group">
                                 <label for="value_proposition">Value Proposition</label>
                                 <textarea id="value_proposition" class="form-control" v-model="form.value_proposition"
-                                required :class="{ 'is-invalid': form.errors.has('value_proposiition') }"></textarea>
+                                required :class="{ 'is-invalid': form.errors.has('value_proposition') }"></textarea>
                                 <has-error :form="form" field="value_proposition"></has-error>
                             </div>
                             <div class="form-group">
@@ -84,17 +84,23 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="location">Business Location</label>
-                                        <select name="location" id="location" class="form-control"
+                                    <div class="col-md-12">
+                                        <label for="">Business Location</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="location">State</label>
+                                        <select id="location" class="form-control" name="location" @change="fetchCity()"
                                         v-model="form.location" required :class="{ 'is-invalid': form.errors.has('location') }">
-                                            <option value="Abuja">Abuja</option>
-                                            <option value="Anambra">Anambra</option>
-                                            <option value="Akwa Ibom">Akwa Ibom</option>
-                                            <option value="Kaduna">Kaduna</option>
-                                            <option value="Lagos">Lagos</option>
-                                            <option value="Osun">Osun</option>
-                                            <option value="Zamfara">Zamfara</option>
+                                            <option value="All">All</option>
+                                            <option v-for="(state,i) in states" :key="i">{{ state.name }}</option>
+                                        </select>
+                                        <has-error :form="form" field="location"></has-error>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="location">City</label>
+                                        <select id="area" class="form-control" name="city" v-model="city">
+                                            <option value="All">All</option>
+                                            <option v-for="(city,i) in cities" :key="i">{{ city}}</option>
                                         </select>
                                         <has-error :form="form" field="location"></has-error>
                                     </div>
@@ -143,7 +149,10 @@ export default {
             imageValidateFail:'',
             documentValidateFail:'',
             fileFormat: ['application/pdf'],
-            formDisabled : false
+            formDisabled : false,
+            states: [],
+            cities: [],
+            city: ''
             }
     },
     computed:{
@@ -163,6 +172,26 @@ export default {
         })},
     },
     methods: {
+        fetchState(){
+            let url="http://locationsng-api.herokuapp.com/api/v1/states";
+            axios.get(url)
+                .then(res =>{
+                    this.states = res.data;
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
+        },
+        fetchCity(){
+            let url=`http://locationsng-api.herokuapp.com/api/v1/states/${this.form.location}/lgas`;
+            axios.get(url)
+                .then(res =>{
+                    this.cities = res.data;
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
+        },
         updateValueText(){
             this.valueText = (this.form.type == 'investment')
                     ?' Fund Seeking to raise '
@@ -193,6 +222,9 @@ export default {
                     this.formDisabled = false;
                 });
         }
+    },
+    created(){
+        this.fetchState();
     }
 }
 </script>
