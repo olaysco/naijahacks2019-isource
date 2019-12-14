@@ -21,16 +21,20 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <label for="location" class="text-dark">Location</label>
-                        <select id="location" class="form-control" name="location" v-model="location">
+                        <label for="">Location</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="location" class="text-dark">State</label>
+                        <select id="location" class="form-control" name="location" v-model="state" @change="fetchCity()">
                             <option value="All">All</option>
-                            <option value="Abuja">Abuja</option>
-                            <option value="Anambra">Anambra</option>
-                            <option value="Akwa Ibom">Akwa Ibom</option>
-                            <option value="Kaduna">Kaduna</option>
-                            <option value="Lagos">Lagos</option>
-                            <option value="Osun">Osun</option>
-                            <option value="Zamfara">Zamfara</option>
+                            <option v-for="(state,i) in states" :key="i">{{ state.name }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="area" class="text-dark">Area</label>
+                        <select id="area" class="form-control" name="city" v-model="area">
+                            <option value="All">All</option>
+                            <option v-for="(city,i) in cities" :key="i">{{ city}}</option>
                         </select>
                     </div>
                 </div>
@@ -58,6 +62,7 @@
   </div>
 </template>
 <script>
+
 export default {
     data(){
         return {
@@ -68,18 +73,41 @@ export default {
             }),
             value: [5000, 500000],
             sector: 'All',
-            location: 'All',
+            state: 'All',
+            area: '',
+            states: [],
+            cities: [],
         }
     },
     computed: {
         searching(){ return this.$store.state.searching }
     },
     methods: {
+        fetchState(){
+            let url="http://locationsng-api.herokuapp.com/api/v1/states";
+            axios.get(url)
+                .then(res =>{
+                    this.states = res.data;
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
+        },
+        fetchCity(){
+            let url=`http://locationsng-api.herokuapp.com/api/v1/states/${this.state}/lgas`;
+            axios.get(url)
+                .then(res =>{
+                    this.cities = res.data;
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
+        },
         find(){
                 let searchData = {
                     value : this.value,
                     sector : this.sector,
-                    location : this.location,
+                    location : this.state,
                     term : ''
                 }
                 this.$store.commit("setSearchData", searchData);
@@ -89,6 +117,9 @@ export default {
         toggleToLogin(){
             this.$store.commit('toggleToLogin');
         }
+    },
+    created(){
+        this.fetchState();
     }
 }
 </script>
