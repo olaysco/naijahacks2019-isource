@@ -4,17 +4,18 @@
         <div class="project-card bs-light br-4 position-relative">
             <div class="up">
             <figure>
-                <img src="/img/biz.jpg" alt="" srcset="" class=" img-responsive">
-                <div class="date ">
-                <!-- <div  class="day d-flex"><span class="m-auto">{{project.startDate | moment('Do')}}</span></div> -->
-                <!-- <span class="month">{{project.startDate | moment('MMM')}}</span> -->
-                </div>
+                <img src="/img/cassava.jpg" alt="" srcset="" class=" img-responsive">
+                <div class="value ">
+              <!-- <div  class="day d-flex"><span class="m-auto">{{project.startDate | moment('Do')}}</span></div> -->
+              <!-- <span class="month">{{project.startDate | moment('MMM')}}</span> -->
+              <span> funding </span>: &#8358;100,000
+            </div>
             </figure>
             </div>
             <div class="down position-relative">
             <div class="pm-info">
                 <img src="/img/avatar.png" alt="" class="pm-img">
-                <span class="pm-name">Olayiwola</span>
+                <span class="pm-name">John doe</span>
             </div>
             <div class="wrap pt-4 px-4 ">
                 <h5 class="d-block text-line-2 text-uppercase mt-2">
