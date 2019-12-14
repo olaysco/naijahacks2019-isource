@@ -52,7 +52,7 @@
                 </div>
                 <div class="tab-pane" id="resources">
                     <h4>Key Resources</h4>
-                    <span v-for="(pr,index) in business.key_resources.split(',')" :key="index+'kr'">Land <br></span>
+                    <span v-for="(pr,index) in business.key_resources.split(',')" :key="index+'kr'">{{pr}} <br></span>
                 </div>
                 <div class="tab-pane" id="documents">
                     <a :href="'/storage'+business.document_url" target="_blank" >Download document <i class="fa fa-file"></i></a>
@@ -74,8 +74,13 @@ export default {
     },
     computed:{
         business(){
-            return this.$store.state.businesses[this.id];
+            let businesses = this.$store.state.businesses;
+            let found =  businesses.find( business => business.id == this.id);
+            return found;
         }
+    },
+    created() {
+
     }
 }
 </script>

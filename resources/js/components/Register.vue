@@ -28,7 +28,7 @@
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                     <label for="name" class="text-dark">Full Name</label>
-                                    <input id="name" type="text" class="form-control" name="name" v-model="form.name" placeholder="Enter Email"
+                                    <input id="name" type="text" class="form-control" name="name" v-model="form.name" placeholder="Enter Name"
                                     :class="{ 'is-invalid': form.errors.has('name') }"  required autofocus>
                                     <has-error :form="form" field="name"></has-error>
                                 </div>
