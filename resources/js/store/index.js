@@ -34,9 +34,13 @@ export default new vuex.Store({
                 .catch( console.log );
         },
         getBusiness( context, index ){
-            console.log(index)
-            console.log(context.state.businesses);
             return context.state.businesses[index];
+        },
+        getBusinessById( context, id ) {
+            let businesses = context.state.businesses;
+            let found =  businesses.find( business => business.id == id);
+            console.log(found);
+            return found;
         },
         search( { state } ){
             state.searching = true;

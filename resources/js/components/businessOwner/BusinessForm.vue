@@ -8,8 +8,9 @@
                     <div class="card">
                         <div class="card-body">
                             <span>
-                                Adding a new business Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam placeat molestiae nobis dolorum voluptas, impedit, vitae sint tempora ullam vero iste,
-                                 pariatur quam? Sapiente, ipsa officiis laborum asperiores beatae officia!
+                                Creating a good business on the platform gives you the opportunity to have your business information
+                                verified and get paid for it while start ups can access such information at an affordable price.
+                                Also the platform allows individuals (Workers/retirees/Nigeria in diaspora) to become investors, if you go for the invesment option.
                             </span>
                         </div>
                     </div>

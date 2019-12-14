@@ -24,7 +24,7 @@
                 </div>
                 <div class="row" v-if="businesses && businesses.length>0">
                     <div class="col-md-4" v-for="( business, i) in businesses" :key="i">
-                        <BusinessCard :business="business" :key="'business'+i" :index="i"></BusinessCard>
+                        <BusinessCard :business="business" :key="'business'+i" :index="business.id"></BusinessCard>
                     </div>
                 </div>
                 <div class="row no-result"  v-if="businesses && businesses.length<1">
