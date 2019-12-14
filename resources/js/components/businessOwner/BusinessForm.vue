@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="form mt-4">
-                        <form action="#" @submit.prevent="addBusiness">
+                        <form action="#">
                             <div class="form-group">
                                 <ImageFile v-model="form.cover" :placeholder="'Select Business Cover'"
                                 :name="'Business Cover'" key="businessCover"/>
@@ -114,9 +114,10 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <button class="btn btn-primary w-100 btn-lg" :disabled="form.busy">
+                                    <button @click.prevent="addBusiness" class="btn btn-primary w-100 btn-lg" type="submit" :disabled="formDisabled">
                                         SUBMIT NEW BUSINESS
-                                         <span class="spinner-grow spinner-grow-sm" :class="{'d-none': !form.busy}" role="status" aria-hidden="true"></span>
+                                    <span class="spinner-grow spinner-grow-sm" :class="{'d-none': !formDisabled}" role="status" aria-hidden="true"></span>
+
                                     </button>
                                 </div>
                             </div>
@@ -141,7 +142,8 @@ export default {
             valueText:' Fund Seeking to raise ',
             imageValidateFail:'',
             documentValidateFail:'',
-            fileFormat: ['application/pdf']
+            fileFormat: ['application/pdf'],
+            formDisabled : false
             }
     },
     computed:{
@@ -177,6 +179,8 @@ export default {
             }
             this.documentValidateFail = '';
             this.imageValidateFail = '';
+            NProgress.start();
+            this.formDisabled = true;
             this.form.post('/api/business')
                 .then(response => {
                     this.notify("Business successfully added");
@@ -184,7 +188,10 @@ export default {
                 })
                 .catch(err => {
                     this.notify("error adding business", "error");
-                })
+                }).finally(e =>{
+                    NProgress.done();
+                    this.formDisabled = false;
+                });
         }
     }
 }

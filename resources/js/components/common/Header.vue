@@ -7,9 +7,9 @@
                 </a>
                 <ul class="d-flex justify-self-end mb-0">
                     <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
-              <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Businesses</router-link>
+              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Businesses</a>
               <router-link to="/search" class="animate-link  mr-1 justify-self-center text-dark text-uppercase  pr-3">Search</router-link>
-              <router-link to="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase pr-3">Profile</router-link>
+              <a href="/home" class="animate-link  mr-1 justify-self-center text-dark text-uppercase pr-3">Profile</a>
               <a href="#" class="animate-link  mr-1 justify-self-center text-dark text-uppercase " @click="logout">Logout</a>
               </li>
               </ul>
