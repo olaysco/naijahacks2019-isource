@@ -13,10 +13,12 @@
             </div>
             <div class="body-section d-flex">
                 <div class="logo">
-                    <h2 class="text-uppercase font-300 text-center">
-                            Breaking the <span class="font-bold">start-up information</span>
-                            <span class="barrier text-line-through">barrier</span>
-                        </h2>
+                    <h4 class="text-uppercase font-300 text-center">
+                            Breaking the <span class="barrier text-line-through">barrier</span>
+                            between business<span class="font-bold"> start-up information</span>
+                             and
+                            <span class="font-bold">individuals</span>
+                        </h4>
                 </div>
                 <div class="search-form ">
                     <div class="search-input">

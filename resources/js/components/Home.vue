@@ -23,9 +23,9 @@
                     <div class="col-md-8 d-flex flex-column justify-content-center heading-text">
                         <h2 class="text-uppercase font-300 text-white">
                             Breaking the <span class="barrier text-line-through">barrier</span>
-                            between <span class="font-bold">start-up information</span> ,
-                            passionate <span class="font-bold">entrepreneurs</span> and
-                            <span class="font-bold">investors</span>
+                            between business<span class="font-bold"> start-up information</span>
+                             and
+                            <span class="font-bold">individuals</span>
                         </h2>
                         <!-- <div>
                             <router-link to="/search" class="btn btn-secondary px-4">FIND BUSINESS NOW</router-link>
