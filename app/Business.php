@@ -8,8 +8,8 @@ class Business extends Model
 {
     protected $gaurded = ['id'];
 
-    public function businessOwner()
+    public function owner()
     {
-        return $this->belongsTo('App\BusinessOwner')->with('user');
+        return $this->belongsTo('App\Owner')->with('user');
     }
 }

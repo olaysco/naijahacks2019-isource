@@ -15,18 +15,18 @@ Auth::routes();
 Route::view('/login', 'welcome')->name('login');
 Route::view('/register', 'welcome');
 Route::get('/home', function () {
-    if (Auth::user() && Auth::user()->businessOwner) {
+    if (Auth::user() && Auth::user()->owner) {
         return redirect('/dashboard/1');
-    } else if (Auth::user() && Auth::user()->businessInvestor) {
+    } else if (Auth::user() && Auth::user()->investor) {
         return redirect('/dashboard/2');
     } else {
         return redirect('/');
     }
 })->name('home');
 Route::get('/dashboard', function () {
-    if (Auth::user() && Auth::user()->businessOwner) {
+    if (Auth::user() && Auth::user()->owner) {
         return redirect('/dashboard/1');
-    } else if (Auth::user() && Auth::user()->businessInvestor) {
+    } else if (Auth::user() && Auth::user()->investor) {
         return redirect('/dashboard/2');
     } else {
         return redirect('/');

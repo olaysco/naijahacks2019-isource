@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Business;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +12,7 @@ class OwnerController extends Controller
 {
     public function __construct()
     {
-        Auth::guard('api');
+        $this->middleware('auth:api');
     }
 
     /**
@@ -21,6 +23,12 @@ class OwnerController extends Controller
     public function index()
     {
         //TODO
+    }
+
+    public function owner()
+    {
+        $owner = Auth::user()->owner;
+        return $owner;
     }
 
     /**
@@ -55,7 +63,14 @@ class OwnerController extends Controller
      */
     public function myBusiness()
     {
-        $owner = Auth::user()->businessOwner;
-        return response()->json($owner, 200);
+        $businesses = Business::where('business_owner_id', $this->owner()->id)->get();
+        return response()->json($businesses, 200);
+    }
+
+
+    public function single()
+    {
+        $user = User::find(Auth::user()->id)->with('owner')->first();
+        return response()->json($user, 200);
     }
 }

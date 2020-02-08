@@ -38,13 +38,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function businessOwner()
+    public function owner()
     {
-        return $this->hasOne('App\BusinessOwner');
+        return $this->hasOne('App\Owner');
     }
 
-    public function businessInvestor()
+    public function investor()
     {
-        return $this->hasOne('App\BusinessInvestor');
+        return $this->hasOne('App\Investor');
     }
 }

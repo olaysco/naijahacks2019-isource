@@ -8,7 +8,8 @@
         <div class="col-lg-3">
           <aside class="dashboard-menu card mb-2">
             <router-link to="/dashboard/1" class="user-details">
-              <div class="media">
+              <PageSkeleton v-if="!user"></PageSkeleton>
+              <div class="media" v-else>
                 <img
                   src="https://p.iconscoutmails.com/img/cf625b8.svg"
                   class="d-flex user-details-thumb"
@@ -22,25 +23,25 @@
             <hr class="mt-0" />
             <ul class="list-unstyled menu-options">
               <li>
-                <router-link to="/businessOwner/businesses">
+                <router-link to="/dashboard/1/businesses">
                   <i class="far fa-lightbulb mr-2"></i>
                   <span class="text">Businesses</span>
                 </router-link>
               </li>
               <li>
-                <router-link to="/businessOwner/businesses">
+                <router-link to="/dashboard/1/transactions">
                   <i class="far fa-file-alt mr-2"></i>
                   <span class="text">Transactions</span>
                 </router-link>
               </li>
               <li>
-                <router-link to="/businessOwner/businesses">
+                <router-link to="/dashboard/1/account">
                   <i class="far fa-money-bill-alt mr-2"></i>
                   <span class="text">Account Balance</span>
                 </router-link>
               </li>
               <li>
-                <router-link to="/businessOwner/businesses">
+                <router-link to="/dashboard/1/profile">
                   <i class="far fa-user-circle mr-2"></i>
                   <span class="text">Profile Setting</span>
                 </router-link>
@@ -50,7 +51,7 @@
           </aside>
         </div>
         <div class="col-lg-9">
-          <slot></slot>
+          <router-view></router-view>
         </div>
       </div>
     </section>
@@ -60,6 +61,8 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
+import PageSkeleton from "../common/PageSkeleton";
 import Footer from "../common/Footer.vue";
 import Header from "../common/Header";
 import AllBusiness from "../common/AllBusiness";
@@ -67,7 +70,16 @@ export default {
   components: {
     Header,
     AllBusiness,
-    Footer
+    Footer,
+    PageSkeleton
+  },
+  computed: {
+    ...mapState("owner", {
+      user: state => state.user
+    })
+  },
+  async created() {
+    await this.$store.dispatch("owner/getUser");
   }
 };
 </script>

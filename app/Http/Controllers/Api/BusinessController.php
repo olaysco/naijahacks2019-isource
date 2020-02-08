@@ -24,12 +24,12 @@ class BusinessController extends Controller
         $this->middleware('auth:api');
     }
 
-    public function index( Request $request )
+    public function index(Request $request)
     {
         return response()->json($this->allBusiness(), 200);
     }
 
-    public function store( BusinessStoreRequest $request)
+    public function store(BusinessStoreRequest $request)
     {
         $cover = $this->saveFile($request->cover, $this->folder);
         $document = $this->saveFile($request->document, $this->folder);
@@ -45,26 +45,25 @@ class BusinessController extends Controller
         $business->document_url = $document;
         $business->location = $request->location;
         $business->sector = $request->sector;
-        $business->business_owner_id = Auth::user()->businessOwner->id;
+        $business->business_owner_id = Auth::user()->owner->id;
         $business->save();
 
         return response()->json($business->all(), 200);
-
     }
 
-    public function search( Request $request )
+    public function search(Request $request)
     {
 
-        $location = ($request->location == "All")?'':$request->location;
-        $sector = ($request->sector == "All")?'':$request->sector;
+        $location = ($request->location == "All") ? '' : $request->location;
+        $sector = ($request->sector == "All") ? '' : $request->sector;
         $term = $request->term;
         $business = Business
-                    ::where( 'title', 'LIKE', '%'.$term.'%' )
-                    ->where( 'sector', 'LIKE', '%'.$sector.'%' )
-                    ->where( 'location', 'LIKE', '%'.$location.'%' )
-                    ->whereBetween( 'value', $request->value )
-                    ->with('businessOwner')
-                    ->get();
+            ::where('title', 'LIKE', '%' . $term . '%')
+            ->where('sector', 'LIKE', '%' . $sector . '%')
+            ->where('location', 'LIKE', '%' . $location . '%')
+            ->whereBetween('value', $request->value)
+            ->with('businessOwner')
+            ->get();
         return response()->json($business, 200);
     }
 

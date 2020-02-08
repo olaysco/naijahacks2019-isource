@@ -11,6 +11,7 @@ export default new vuex.Store({
     },
     state: {
         toLogin: true,
+        user: window.user,
         businesses: [],
         searchData: null,
         searchResult: null,
@@ -42,6 +43,11 @@ export default new vuex.Store({
             let businesses = context.state.businesses;
             let found = businesses.find(business => business.id == id);
             return found;
+        },
+        logout(context) {
+            Axios.post("/logout").then(response => {
+                (window.user = null), (window.location = "/");
+            });
         },
         search({ state }) {
             state.searching = true;

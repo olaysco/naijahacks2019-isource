@@ -11,12 +11,8 @@
             <a href="/home" class="nav-link active animate-lin justify-self-center pr-3">Home</a>
             <router-link to="/search" class="nav-link animate-ink justify-self-center pr-3">Search</router-link>
             <a href="/invest" class="nav-link animate-ink justify-self-center pr-3">Investment</a>
-            <a href>
-              <img
-                src="https://p.iconscoutmails.com/img/cf625b8.svg"
-                class="d-flex user-details-thumb"
-              />
-            </a>
+            <UserDropdown v-if="user && user.email"></UserDropdown>
+            <a v-else href="/login" class="btn btn-secondary justify-self-center">sign in</a>
           </li>
         </ul>
       </header>
@@ -25,6 +21,11 @@
 </template>
 <script>
 export default {
+  computed: {
+    user() {
+      return this.$store.state.user;
+    }
+  },
   methods: {
     logout() {
       axios

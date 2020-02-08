@@ -1,98 +1,96 @@
 <template>
   <div>
-    <Layout page="dashboard">
-      <!-- <div class="row">
-                    <div class="col-md-9">
-                        <AllBusiness></AllBusiness>
-                    </div>
-                    <div class="col-md-3 ">
-                        <div>
-                            <router-link to="/add/business" class="btn btn-secondary w-100">Add Business <i class="fa fa-plus"></i></router-link>
-                        </div>
-                    </div>
-      </div>-->
-      <div class="row mb-4">
-        <div class="col">
-          <h2 class="mb-0">Dashboard</h2>
-        </div>
+    <div class="row mb-4">
+      <div class="col">
+        <h2 class="mb-0">Dashboard</h2>
       </div>
-      <div class="row">
-        <div class="col-md mb-3">
-          <div class="card p-3">
-            <div class="media align-items-center">
-              <span class="icon business-icon mr-3">
-                <i class="fas fa-lightbulb"></i>
-              </span>
-              <div>
-                <h6 class="mb-2">My Businesses</h6>
-                <span class="text-secondary">0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md mb-3">
-          <div class="card p-3">
-            <div class="media align-items-center">
-              <span class="icon purchased-icon mr-3">
-                <i class="fas fa-handshake"></i>
-              </span>
-              <div>
-                <h6 class="mb-2">Total Purchased</h6>
-                <span class="text-secondary">5</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card p-3">
-            <div class="media align-items-center">
-              <span class="icon balance-icon mr-3">
-                <i class="fas fa-money-bill-alt"></i>
-              </span>
-              <div>
-                <h6 class="mb-2">Account Balance</h6>
-                <span class="text-secondary">&#x20a6; 100.00</span>
-              </div>
+    </div>
+    <div class="row">
+      <div class="col-md mb-3">
+        <div class="card p-3">
+          <div class="media align-items-center">
+            <span class="icon business-icon mr-3">
+              <i class="fas fa-lightbulb"></i>
+            </span>
+            <div>
+              <h6 class="mb-2">My Businesses</h6>
+              <PageSpinner v-if="!myBusiness"></PageSpinner>
+              <span v-else class="text-secondary">{{myBusiness.length}}</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="row my-4">
-        <div class="col">
-          <h2 class="mb-0">Recent Purchase</h2>
-        </div>
-      </div>
-      <div class="row mb-4">
-        <div class="col-md">
-          <table class="table table-light">
-            <thead>
-              <tr class="font-light">
-                <th>ID</th>
-                <th>Business</th>
-                <th>Date</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody class="text-center"></tbody>
-          </table>
-          <div class="text-center">
-            <span>NO purchase yet</span>
+      <div class="col-md mb-3">
+        <div class="card p-3">
+          <div class="media align-items-center">
+            <span class="icon purchased-icon mr-3">
+              <i class="fas fa-handshake"></i>
+            </span>
+            <div>
+              <h6 class="mb-2">Total Purchased</h6>
+              <span class="text-secondary">0</span>
+            </div>
           </div>
         </div>
       </div>
-    </Layout>
+      <div class="col-md">
+        <div class="card p-3">
+          <div class="media align-items-center">
+            <span class="icon balance-icon mr-3">
+              <i class="fas fa-money-bill-alt"></i>
+            </span>
+            <div>
+              <h6 class="mb-2">Account Balance</h6>
+              <span class="text-secondary">&#x20a6; 100.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-4">
+      <div class="col">
+        <h2 class="mb-0">Recent Purchase</h2>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md">
+        <table class="table table-light">
+          <thead>
+            <tr class="font-light">
+              <th>ID</th>
+              <th>Business</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody class="text-center"></tbody>
+        </table>
+        <div class="text-center">
+          <span>No purchase yet</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import Layout from "./Layout";
 import AllBusiness from "../common/AllBusiness";
+import PageSpinner from "../common/PageSpinner";
 export default {
   components: {
     Layout,
-    AllBusiness
+    AllBusiness,
+    PageSpinner
+  },
+  computed: {
+    ...mapState("owner", {
+      myBusiness: state => state.businesses
+    })
   },
   async created() {
     await this.$store.dispatch("getBusinesses");
+    await this.$store.dispatch("owner/getBusinesses");
   }
 };
 </script>

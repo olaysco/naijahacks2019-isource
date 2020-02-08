@@ -1,20 +1,31 @@
+import Axios from "axios";
+
 const owner = {
     namespaced: true,
     state: {
-        user: "",
-        businesses: []
+        user: false,
+        businesses: false
     },
     mutations: {
         setBusinesses(state, businesses) {
             state.businesses = businesses;
+        },
+        setUser(state, user) {
+            state.user = user;
         }
     },
     actions: {
         getBusinesses(context) {
             Axios.get("/api/owner/business")
                 .then(response => {
-                    // context.commit("setBusinesses", response.data);
-                    console.log(response);
+                    context.commit("setBusinesses", response.data);
+                })
+                .catch(console.log);
+        },
+        getUser(context) {
+            Axios.get("/api/owner")
+                .then(response => {
+                    context.commit("setUser", response.data);
                 })
                 .catch(console.log);
         }

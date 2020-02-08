@@ -21,31 +21,30 @@ class MainController extends Controller
 
     public function __construct()
     {
-
     }
 
-    public function index( Request $request )
+    public function index(Request $request)
     {
         return response()->json($this->allBusiness(), 200);
     }
 
-    public function search( Request $request )
+    public function search(Request $request)
     {
-        $location = ($request->location == "All")?'':$request->location;
-        $sector = ($request->sector == "All")?'':$request->sector;
+        $location = ($request->location == "All") ? '' : $request->location;
+        $sector = ($request->sector == "All") ? '' : $request->sector;
         $term = $request->term;
         $business = Business
-                    ::where( 'title', 'LIKE', '%'.$term.'%' )
-                    ->where( 'sector', 'LIKE', '%'.$sector.'%' )
-                    ->where( 'location', 'LIKE', '%'.$location.'%' )
-                    ->whereBetween( 'value', $request->value )
-                    ->with('businessOwner')
-                    ->get();
+            ::where('title', 'LIKE', '%' . $term . '%')
+            ->where('sector', 'LIKE', '%' . $sector . '%')
+            ->where('location', 'LIKE', '%' . $location . '%')
+            ->whereBetween('value', $request->value)
+            ->with('owner')
+            ->get();
         return response()->json($business, 200);
     }
 
     public function allBusiness()
     {
-        return Business::with('businessOwner')->get();
+        return Business::with('owner')->get();
     }
 }
