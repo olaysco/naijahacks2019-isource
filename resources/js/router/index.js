@@ -14,17 +14,17 @@ import Register from "../components/Register";
 Vue.use(VueRouter);
 
 const routes = [
-    { path: "/", component:Home },
-    { path: "/home", component:Home },
-    { path: "/search", component:Search },
-    { path: "/businessOwner", component:BusinessOwnerHome },
-    { path: "/businessInvestor", component:BusinessInvestorHome },
-    { path: "/business/:id", component:BusinessPage },
-    { path: "/add/business", component:BusinessForm },
-    { path: "/search/result", component:SearchResult },
-    { path: "/login", component:Login },
+    { path: "/", component: Home },
+    { path: "/home", component: Home },
+    { path: "/search", component: Search },
+    { path: "/dashboard/1", component: BusinessOwnerHome },
+    { path: "/dashboard/2", component: BusinessInvestorHome },
+    { path: "/business/:id", component: BusinessPage },
+    { path: "/add/business", component: BusinessForm },
+    { path: "/search/result", component: SearchResult },
+    { path: "/login", component: Login },
     { path: "/register", component: Register }
-]
+];
 
 const router = new VueRouter({
     mode: "history",
@@ -32,12 +32,11 @@ const router = new VueRouter({
 });
 
 router.beforeResolve((to, from, next) => {
-    NProgress.start()
-next()
+    NProgress.start();
+    next();
 });
 router.afterEach((to, from) => {
-    NProgress.done()
-
+    NProgress.done();
 });
 
 export default router;

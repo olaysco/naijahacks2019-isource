@@ -1,8 +1,7 @@
 <template>
   <div>
-        <Layout page="AllBusiness">
-            <div class="container">
-                <div class="row">
+    <Layout page="dashboard">
+      <!-- <div class="row">
                     <div class="col-md-9">
                         <AllBusiness></AllBusiness>
                     </div>
@@ -10,28 +9,115 @@
                         <div>
                             <router-link to="/add/business" class="btn btn-secondary w-100">Add Business <i class="fa fa-plus"></i></router-link>
                         </div>
-                        <div class=" col-md-2 position-fixed h-80v d-flex justify-contnet-center flex-column align-items-center">
-                            <img src="/img/bizskills.jpg" alt="biz-skill" class="img-responsive mt-auto">
-                            <small>ads by adver</small>
-                        </div>
                     </div>
-                </div>
+      </div>-->
+      <div class="row mb-4">
+        <div class="col">
+          <h2 class="mb-0">Dashboard</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md mb-3">
+          <div class="card p-3">
+            <div class="media align-items-center">
+              <span class="icon business-icon mr-3">
+                <i class="fas fa-lightbulb"></i>
+              </span>
+              <div>
+                <h6 class="mb-2">My Businesses</h6>
+                <span class="text-secondary">0</span>
+              </div>
             </div>
-        </Layout>
+          </div>
+        </div>
+        <div class="col-md mb-3">
+          <div class="card p-3">
+            <div class="media align-items-center">
+              <span class="icon purchased-icon mr-3">
+                <i class="fas fa-handshake"></i>
+              </span>
+              <div>
+                <h6 class="mb-2">Total Purchased</h6>
+                <span class="text-secondary">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card p-3">
+            <div class="media align-items-center">
+              <span class="icon balance-icon mr-3">
+                <i class="fas fa-money-bill-alt"></i>
+              </span>
+              <div>
+                <h6 class="mb-2">Account Balance</h6>
+                <span class="text-secondary">&#x20a6; 100.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <h2 class="mb-0">Recent Purchase</h2>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-md">
+          <table class="table table-light">
+            <thead>
+              <tr class="font-light">
+                <th>ID</th>
+                <th>Business</th>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody class="text-center"></tbody>
+          </table>
+          <div class="text-center">
+            <span>NO purchase yet</span>
+          </div>
+        </div>
+      </div>
+    </Layout>
   </div>
-
 </template>
 <script>
 import Layout from "./Layout";
 import AllBusiness from "../common/AllBusiness";
 export default {
-    components: {
-        Layout, AllBusiness
-    },
-    async created(){
-        await this.$store.dispatch( 'getBusinesses' );
-    }
-}
+  components: {
+    Layout,
+    AllBusiness
+  },
+  async created() {
+    await this.$store.dispatch("getBusinesses");
+  }
+};
 </script>
 <style scoped>
+.icon {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.business-icon {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+.balance-icon {
+  background-color: rgba(233, 30, 99, 0.2);
+  color: #e91e63;
+}
+.purchased-icon {
+  color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.2);
+}
+th {
+  font-weight: lighter;
+}
 </style>

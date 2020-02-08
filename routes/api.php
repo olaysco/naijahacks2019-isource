@@ -17,7 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/business', 'BusinessController@store');
-Route::get('/business', 'MainController@index');
+Route::get('/businesses', 'MainController@index');
+Route::get('/owner/business', 'OwnerController@myBusiness');
 Route::post('/business/search', 'MainController@search');
-
-

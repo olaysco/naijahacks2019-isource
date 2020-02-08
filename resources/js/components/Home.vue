@@ -1,17 +1,18 @@
 <template>
   <div>
-      <div class="container">
-        <section class="header row align-content-center h-80p">
+      <div class="container-fluid pr-0 head-container">
+        <section class="header row align-content-center h-80p mx-3">
           <header class="col-md-12 d-flex justify-content-between align-self-center align-items-center">
                 <a href="/" class="logo-text">
+                    <img src="/img/logo-mini.svg" alt="isource-logo" width="40">
                     iSource
                 </a>
                 <ul class="d-flex justify-self-end mb-0">
-                    <li class="align-self-center text-primary-light mr-2 d-flex align-items-center">
-                <a href="/home" class="active animate-link  mr-1 justify-self-center text-dark  pr-3">HOME</a>
-                <router-link to="/search" class="animate-link  mr-1 justify-self-center text-dark  pr-3">SEARCH</router-link>
-              <a href="/invest" class="animate-link  mr-1 justify-self-center text-dark pr-3">INVESTMENT</a>
-              <a href="/login" class="btn btn-secondary  mr-1 justify-self-center">SIGN IN</a>
+                    <li class="align-self-center text-primary-light d-flex align-items-center">
+                <a href="/home" class=" nav-link active animate-lin justify-self-center pr-3">Home</a>
+                <router-link to="/search" class="nav-link animate-ink  justify-self-center pr-3">Search</router-link>
+              <a href="/invest" class="nav-link animate-ink  justify-self-center pr-3">Investment</a>
+              <a href="/login" class="btn btn-secondary  justify-self-center">sign in</a>
               </li>
               </ul>
             </header>
@@ -21,7 +22,7 @@
             <div class="container d-flex flex-column justify-content-center h-100">
                 <div class="row">
                     <div class="col-md-8 d-flex flex-column justify-content-center heading-text">
-                        <h2 class="text-uppercase font-300 text-white">
+                        <h2 class="text">
                             Breaking the <span class="barrier text-line-through">barrier</span>
                             between business<span class="font-bold"> start-up information</span>
                              and
@@ -113,11 +114,18 @@ export default {
 .w-60{
     min-width: 55%;
 }
+.heading-text .text{
+    font-size: 3rem;
+    text-align: left;
+}
 .main{
     height: calc(100vh - 80px);
     width: 100vw;
-    background-color: #212645;
-    background-image: url('/img/bg.svg');
+    background-color: #fff;
+}
+.nav-link{
+    color: #000;
+    font-weight: 400;
 }
 .heading-text .barrier{
     font-size: 80%;
