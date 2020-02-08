@@ -11,6 +11,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+        <link rel="favicon" href="{{ asset('/img/favicon.png') }}">
+        <link rel="shortcut icon" href="{{ asset('/img/favicon.png') }}">
 
         <!-- Styles -->
         <!-- Bootstrap CSS -->
