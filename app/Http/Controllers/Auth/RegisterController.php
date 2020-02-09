@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\BusinessInvestor;
-use App\BusinessOwner;
+use App\Investor;
+use App\Owner;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'level' => ($data['type'] === 'business')?1:2,
+            'level' => ($data['type'] === 'business') ? 1 : 2,
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
@@ -84,24 +84,24 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        if($request->type === 'business'){
+        if ($request->type === 'business') {
             $this->newBusinessOwner($user);
-        }else {
+        } else {
             $this->newBusinessInvestor($user);
         }
-        return response()->json([$user,'success'=>true], 200);
+        return response()->json([$user, 'success' => true], 200);
     }
 
     public function newBusinessOwner($user)
     {
-        $businessOwner = new BusinessOwner();
+        $businessOwner = new Owner();
         $businessOwner->user_id = $user->id;
         $businessOwner->save();
     }
 
     public function newBusinessInvestor($user)
     {
-        $businessInvestor = new BusinessInvestor();
+        $businessInvestor = new Investor();
         $businessInvestor->user_id = $user->id;
         $businessInvestor->save();
     }
