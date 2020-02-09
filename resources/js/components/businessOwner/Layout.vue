@@ -29,6 +29,12 @@
                 </router-link>
               </li>
               <li>
+                <router-link to="/dashboard/1/new-business">
+                  <i class="far fa-lightbulb mr-2"></i>
+                  <span class="text">New Business</span>
+                </router-link>
+              </li>
+              <li>
                 <router-link to="/dashboard/1/transactions">
                   <i class="far fa-file-alt mr-2"></i>
                   <span class="text">Transactions</span>

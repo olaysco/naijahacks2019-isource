@@ -45,6 +45,10 @@ const routes = [
             {
                 path: "transactions",
                 component: OwnerTransaction
+            },
+            {
+                path: "new-business",
+                component: BusinessForm
             }
         ]
     },
