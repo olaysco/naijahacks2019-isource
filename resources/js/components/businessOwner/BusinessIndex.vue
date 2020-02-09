@@ -1,13 +1,36 @@
 <template>
   <div>
     <div class="row mb-4">
-      <div class="col">
+      <div class="col d-flex align-items-center justify-content-between">
         <h2 class="mb-0">My Businesses</h2>
+        <span>
+          <a href="#" @click.prevent="toggleView">
+            <i class="fas fa-th" :class="{'active_view': ( GRID_VIEW)}"></i>
+          </a>
+          <a href="#" @click.prevent="toggleView">
+            <i class="fas fa-list ml-2" :class="{'active_view': ( LIST_VIEW)}"></i>
+          </a>
+        </span>
       </div>
     </div>
-    <div class="row mb-4" v-if="myBusinesses">
-      <div class="col-md-6" v-for="(business, i) in myBusinesses" :key="i">
-        <BusinessCard :business="business" :key="'business' + i" :index="business.id"></BusinessCard>
+    <div class="container-fluid mb-4" v-if="myBusinesses">
+      <div class="row" v-if="GRID_VIEW ">
+        <div class="col-md-6" v-for="(business, i) in myBusinesses" :key="i">
+          <BusinessCard :business="business" :key="'business' + i" :index="business.id"></BusinessCard>
+        </div>
+      </div>
+      <div class="row" v-else>
+        <table class="table table-light">
+          <thead>
+            <tr class="font-light">
+              <th>ID</th>
+              <th>Business</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody class="text-center"></tbody>
+        </table>
       </div>
     </div>
     <div v-else>
@@ -24,6 +47,7 @@ import AllBusiness from "../common/AllBusiness";
 import PageSpinner from "../common/PageSpinner";
 import BusinessCard from "../BusinessCard";
 import PageSkeleton from "../common/PageSkeleton";
+
 export default {
   components: {
     Layout,
@@ -32,10 +56,19 @@ export default {
     PageSkeleton,
     BusinessCard
   },
+  data: function() {
+    return { GRID_VIEW: true, LIST_VIEW: false };
+  },
   computed: {
     ...mapState("owner", {
       myBusinesses: state => state.businesses
     })
+  },
+  methods: {
+    toggleView() {
+      this.GRID_VIEW = !this.GRID_VIEW;
+      this.LIST_VIEW = !this.LIST_VIEW;
+    }
   },
   async created() {
     await this.$store.dispatch("getBusinesses");
@@ -66,5 +99,8 @@ export default {
 }
 th {
   font-weight: lighter;
+}
+.active_view {
+  color: aliceblue;
 }
 </style>

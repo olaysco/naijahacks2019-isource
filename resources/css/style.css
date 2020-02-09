@@ -1592,6 +1592,9 @@ input:checked + .slider:before {
     background: #577ee8;
     color: #fff;
 }
+.dashboard-menu a.router-link-exact-active:hover {
+    color: #577ee8;
+}
 .user-details {
     padding: 1.25rem;
     display: block;
