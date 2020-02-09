@@ -1284,6 +1284,68 @@ div.busy div.spinner-border {
     display: block;
     padding: 10px 15px;
 }
+.navbar-toggler span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #048d7f;
+    margin: auto;
+    margin-bottom: 4px;
+    transition: all 400ms linear;
+    cursor: pointer;
+    border-radius: 3px;
+}
+@media (max-width: 991px) {
+    .header .navbar-collapse {
+        padding: 15px 0px;
+        overflow-y: auto;
+        margin-top: 1rem;
+        width: 230px;
+        border: 1px solid rgba(25, 4, 69, 0.1);
+        right: 20px;
+        position: fixed;
+        top: 40px;
+        z-index: 2;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgba(25, 4, 69, 0.1) 0px 0px 0px 1px,
+            rgba(25, 4, 69, 0.1) 0px 10px 20px 0px;
+    }
+    .navbar-toggler[aria-expanded="true"] span:first-child {
+        transform: rotate(-45deg);
+        position: relative;
+        top: 7.5px;
+    }
+    .navbar-toggler[aria-expanded="true"] span:last-child {
+        transform: rotate(45deg);
+        bottom: 6px;
+        position: relative;
+    }
+    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+    .heading-text .text {
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+        flex-basis: none;
+    }
+    .heading-text .text {
+        font-size: 3rem;
+        text-align: left;
+    }
+}
+button.navbar-toggler:focus {
+    outline: unset;
+}
 
 /**
 * Switch button

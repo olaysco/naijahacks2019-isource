@@ -71,7 +71,7 @@
                     <button
                       @click.prevent="login"
                       type="submit"
-                      class="btn btn-primary w-100 btn-auth"
+                      class="btn btn-primary w-100 btn-auth mb-2"
                       :disabled="form.busy"
                     >
                       Login
