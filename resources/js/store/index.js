@@ -59,6 +59,14 @@ export default new vuex.Store({
                 .finally(e => {
                     state.searching = false;
                 });
+        },
+        logout(context) {
+            Axios.post("/logout")
+                .then(response => {
+                    window.location.pathname = "/";
+                    return true;
+                })
+                .catch(console.log);
         }
     }
 });

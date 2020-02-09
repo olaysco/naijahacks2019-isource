@@ -192,6 +192,7 @@ export default {
         .post("/register")
         .then(response => {
           window.location.pathname = "/home";
+          return true;
         })
         .catch(err => {
           console.log(err);

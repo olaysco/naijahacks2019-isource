@@ -15,8 +15,8 @@
                   class="d-flex user-details-thumb"
                 />
                 <div class="media-body">
-                  <h6 class="user-details-name">Olayiwola Odunsi</h6>
-                  <span class="user-details-email">olayiwolaodunsi@gmail.com</span>
+                  <h6 class="user-details-name text-capitalize">{{user.name}}</h6>
+                  <span class="user-details-email text-capitalize">{{user.email}}</span>
                 </div>
               </div>
             </router-link>
@@ -92,5 +92,8 @@ export default {
 <style scoped>
 .min-height-100vh {
   min-height: 100vh;
+}
+.text-capitalize {
+  text-transform: capitalize;
 }
 </style>

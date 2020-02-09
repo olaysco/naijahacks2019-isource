@@ -37,7 +37,7 @@
               <a href="/dashboard" class="dropdown-item">My Dashboard</a>
             </li>
             <li v-if="user && user.email" class="nav-item">
-              <a href="#" class="dropdown-item">Logout</a>
+              <a @click.prevent="logout" class="dropdown-item">Logout</a>
             </li>
             <li v-else class="nav-item">
               <a href="/login" class="btn btn-secondary justify-self-center">sign in</a>
@@ -58,6 +58,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 import UserDropdown from "../common/UserDropdown";
 export default {
   components: {
@@ -69,14 +70,7 @@ export default {
     }
   },
   methods: {
-    logout() {
-      axios
-        .post("/logout")
-        .then(response => {
-          window.location.pathname = "/";
-        })
-        .catch(console.log);
-    }
+    ...mapActions(["logout"])
   }
 };
 </script>

@@ -42,7 +42,7 @@
                 <a href="/dashboard" class="dropdown-item">My Dashboard</a>
               </li>
               <li v-if="user && user.email" class="nav-item">
-                <a href="#" class="dropdown-item">Logout</a>
+                <a @click.prevent="logout" class="dropdown-item">Logout</a>
               </li>
               <li v-else class="nav-item">
                 <a href="/login" class="btn btn-secondary justify-self-center">sign in</a>
@@ -136,6 +136,7 @@ import login from "./Login";
 import BusinessCard from "./common/BusinessCard";
 import SearchComponent from "./common/SearchComponent";
 import UserDropdown from "./common/UserDropdown";
+import { mapActions } from "vuex";
 export default {
   components: {
     login,
@@ -157,6 +158,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["logout"]),
     toggleToLogin() {
       this.$store.commit("toggleToLogin");
     }
