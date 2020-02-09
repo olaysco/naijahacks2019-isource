@@ -1,14 +1,15 @@
-require('./bootstrap');
-window.Vue = require('vue');
+require("./bootstrap");
+window.Vue = require("vue");
 import NProgress from "nprogress";
-import router from "./router"
+import router from "./router";
 import App from "./components/App";
 import store from "./store";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
-import { Form, HasError, AlertError } from 'vform';
+import { Form, HasError, AlertError } from "vform";
 window.Form = Form;
 Vue.use(Antd);
+Vue.use(require("vue-moment"));
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
 // const files = require.context('./', true, /\.vue$/i);
@@ -17,12 +18,11 @@ Vue.component(AlertError.name, AlertError);
 window.fire = new Vue();
 window.NProgress = NProgress;
 new Vue({
-    el: '#app',
+    el: "#app",
     router,
     store,
-    components: {App},
-    data(){
-        return {
-        }
+    components: { App },
+    data() {
+        return {};
     }
-}).$mount('#app');
+}).$mount("#app");

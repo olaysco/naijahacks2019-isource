@@ -5,10 +5,10 @@
         <h2 class="mb-0">My Businesses</h2>
         <span>
           <a href="#" @click.prevent="toggleView">
-            <i class="fas fa-th" :class="{'active_view': ( GRID_VIEW)}"></i>
+            <i class="fas fa-th" :class="{'not_active_view': ( !GRID_VIEW)}"></i>
           </a>
           <a href="#" @click.prevent="toggleView">
-            <i class="fas fa-list ml-2" :class="{'active_view': ( LIST_VIEW)}"></i>
+            <i class="fas fa-list ml-2" :class="{'not_active_view': ( !LIST_VIEW)}"></i>
           </a>
         </span>
       </div>
@@ -20,17 +20,7 @@
         </div>
       </div>
       <div class="row" v-else>
-        <table class="table table-light">
-          <thead>
-            <tr class="font-light">
-              <th>ID</th>
-              <th>Business</th>
-              <th>Date</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody class="text-center"></tbody>
-        </table>
+        <BusinessList :businesses="myBusinesses"></BusinessList>
       </div>
     </div>
     <div v-else>
@@ -47,6 +37,7 @@ import AllBusiness from "../common/AllBusiness";
 import PageSpinner from "../common/PageSpinner";
 import BusinessCard from "../BusinessCard";
 import PageSkeleton from "../common/PageSkeleton";
+import BusinessList from "../common/BusinessList";
 
 export default {
   components: {
@@ -54,7 +45,8 @@ export default {
     AllBusiness,
     PageSpinner,
     PageSkeleton,
-    BusinessCard
+    BusinessCard,
+    BusinessList
   },
   data: function() {
     return { GRID_VIEW: true, LIST_VIEW: false };
@@ -100,7 +92,7 @@ export default {
 th {
   font-weight: lighter;
 }
-.active_view {
+.not_active_view {
   color: aliceblue;
 }
 </style>
