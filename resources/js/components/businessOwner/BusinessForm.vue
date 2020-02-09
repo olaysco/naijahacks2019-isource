@@ -21,12 +21,12 @@
             <form action="#">
               <div class="row" v-if="form.cover">
                 <div class="col-md-2">
-                  <img :src="form.cover.data" />
+                  <img :src="cover.data" class="w-60" />
                 </div>
               </div>
               <div class="form-group">
                 <ImageFile
-                  v-model="form.cover"
+                  v-model="cover"
                   :placeholder="'Select Business Cover'"
                   :name="'Business Cover'"
                   key="businessCover"
@@ -235,7 +235,8 @@ export default {
       formDisabled: false,
       states: [],
       cities: [],
-      city: ""
+      city: "",
+      cover: {}
     };
   },
   computed: {
@@ -250,9 +251,16 @@ export default {
         value: "",
         sector: "",
         location: "",
-        cover: [],
+        cover: {
+          data: "gg"
+        },
         document: []
       });
+    }
+  },
+  watch: {
+    cover: function(newVal, oldVal) {
+      this.form.cover = newVal;
     }
   },
   methods: {
@@ -320,5 +328,8 @@ export default {
 <style scoped>
 .justify-content-evenly {
   justify-content: space-evenly;
+}
+.w-60 {
+  width: 60%;
 }
 </style>
