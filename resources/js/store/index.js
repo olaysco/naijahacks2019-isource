@@ -2,12 +2,14 @@ import vue from "vue";
 import vuex from "vuex";
 import Axios from "axios";
 import owner from "./owner";
+import investor from "./investor";
 
 vue.use(vuex);
 
 export default new vuex.Store({
     modules: {
-        owner
+        owner,
+        investor
     },
     state: {
         toLogin: true,

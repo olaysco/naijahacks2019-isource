@@ -20,4 +20,6 @@ Route::post('/business', 'BusinessController@store');
 Route::get('/businesses', 'MainController@index');
 Route::get('/owner/business', 'OwnerController@myBusiness');
 Route::get('/owner', 'OwnerController@single');
+Route::get('/investor/business', 'InvestorController@myBusiness');
+Route::get('/investor', 'InvestorController@single');
 Route::post('/business/search', 'MainController@search');

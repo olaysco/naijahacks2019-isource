@@ -8,7 +8,12 @@ import OwnerLayout from "../components/businessOwner/Layout";
 import OwnerTransaction from "../components/businessOwner/OwnerTransaction";
 import OwnerAccount from "../components/businessOwner/OwnerAccount";
 import OwnerProfile from "../components/businessOwner/OwnerProfile";
-import BusinessInvestorHome from "../components/businessInvestor/Home";
+import InvestorHome from "../components/businessInvestor/Home";
+import InvestorLayout from "../components/businessInvestor/Layout";
+import InvestorPurchased from "../components/businessInvestor/BusinessPurchased";
+import InvestorProfile from "../components/businessInvestor/Profile";
+import InvestorTransactions from "../components/businessInvestor/TransactionPage";
+import InvestorDiscover from "../components/businessInvestor/DiscoverBusiness";
 import BusinessPage from "../components/BusinessPage";
 import BusinessForm from "../components/businessOwner/BusinessForm";
 import Search from "../components/Search";
@@ -52,7 +57,32 @@ const routes = [
             }
         ]
     },
-    { path: "/dashboard/2", component: BusinessInvestorHome },
+    {
+        path: "/dashboard/2",
+        component: InvestorLayout,
+        children: [
+            {
+                path: "/",
+                component: InvestorHome
+            },
+            {
+                path: "purchased",
+                component: InvestorPurchased
+            },
+            {
+                path: "discover",
+                component: InvestorDiscover
+            },
+            {
+                path: "transactions",
+                component: InvestorTransactions
+            },
+            {
+                path: "profile",
+                component: InvestorProfile
+            }
+        ]
+    },
     { path: "/business/:id", component: BusinessPage },
     { path: "/add/business", component: BusinessForm },
     { path: "/search/result", component: SearchResult },
